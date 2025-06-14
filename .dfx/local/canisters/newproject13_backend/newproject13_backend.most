@@ -1,0 +1,22 @@
+// Version: 1.0.0
+type MemberReward__249628083 = {memberId : Principal; points : Nat};
+type RewardProposal__869019709 =
+  {
+    approved : Bool;
+    description : Text;
+    id : Nat;
+    retailer : Principal;
+    votes : Nat
+  };
+type Tree__407409722<K, V> =
+  {
+    #black : (Tree__407409722<K, V>, K, V, Tree__407409722<K, V>);
+    #leaf;
+    #red : (Tree__407409722<K, V>, K, V, Tree__407409722<K, V>)
+  };
+actor {
+  stable var memberRewards :
+    {root : Tree__407409722<Principal, MemberReward__249628083>; size : Nat};
+  stable var proposals :
+    {root : Tree__407409722<Nat, RewardProposal__869019709>; size : Nat}
+};
